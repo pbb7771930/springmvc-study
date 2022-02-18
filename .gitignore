@@ -21,3 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.idea
+/out
+/springmvc_02_hellomvc/*.iml
+/springmvc_04_controller/*.iml
+/springmvc_05_json/*.iml
+/springmvc_07_intercepter/*.iml
+/springmvc_08_file/*.iml
+/springmvc-01-servlet/*.iml
+/springmvc-03-annotation/*.iml
