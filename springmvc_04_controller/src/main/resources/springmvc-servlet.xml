@@ -35,4 +35,6 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean id="/t1" class="controller.ControllerTest1" />
+
 </beans>

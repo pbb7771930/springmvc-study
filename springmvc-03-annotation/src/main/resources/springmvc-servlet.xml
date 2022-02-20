@@ -27,9 +27,8 @@
     <mvc:annotation-driven />
 
 
-    <!-- 视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          id="internalResourceViewResolver">
+    <!-- 视图解析器 ，解析到目标视图后，会加上前缀和后缀-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
         <!-- 前缀 -->
         <property name="prefix" value="/WEB-INF/jsp/" />
         <!-- 后缀 -->
