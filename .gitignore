@@ -26,6 +26,7 @@ hs_err_pid*
 /springmvc_02_hellomvc/*.iml
 /springmvc_04_controller/*.iml
 /springmvc_05_json/*.iml
+/springmvc_06_ajax/*.iml
 /springmvc_07_intercepter/*.iml
 /springmvc_08_file/*.iml
 /springmvc-01-servlet/*.iml
