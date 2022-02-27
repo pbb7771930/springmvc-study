@@ -18,6 +18,7 @@
             url:"${pageContext.request.contextPath}/a3",
             data:{"name":$("#name").val()},
             success:function (data) {
+                console.log(data);
                 if (data.toString()==='ok'){
                     $("#userInfo").css("color","green");
                 }
@@ -32,6 +33,10 @@
             data:{"pwd":$("#pwd").val()},
             success:function (data) {
                 console.log(data);
+                if (data.toString()==='ok'){
+                    $("#pwdInfo").css("color","green");
+                }
+                $("#pwdInfo").html(data);
             }
         })
 

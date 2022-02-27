@@ -16,6 +16,7 @@ public class LoginController {
         //把用户信息存储在session中
         session.setAttribute("userLoginInfo",username);
         model.addAttribute("username",username);
+        model.addAttribute("password",password);
         return "main";
     }
 
@@ -25,13 +26,13 @@ public class LoginController {
     }
 
     @RequestMapping("/goLogin")
-    public String login1(){
+    public String login(){
         return "login";
     }
 
     @RequestMapping("/goOut")
     public String goOut(HttpSession session){
-
+        //session信息删除
         session.removeAttribute("userLoginInfo");
         return "login";
     }

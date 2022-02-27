@@ -11,13 +11,16 @@
     <title>$Title$</title>
 </head>
 <body>
-https://blog.kuangstudy.com/index.php/archives/486/
-<br>
-
-<form action="${pageContext.request.contextPath}/upload" enctype="multipart/form-data" method="post">
-    <input type="file" name="file"/>
-    <input type="submit" value="upload">
-</form>
+文件上传功能
+    <br>
+    <%--  multipart/form-data：指定传输数据为二进制类型  --%>
+    <form action="${pageContext.request.contextPath}/upload" enctype="multipart/form-data" method="post">
+        <input type="file" name="file"/>
+        <input type="submit" value="上传">
+    </form>
+    <br>
+    <%--  直接下载文件  --%>
+    <a href="${pageContext.request.contextPath}/statics/1.png">下载文件</a>
 
 </body>
 </html>

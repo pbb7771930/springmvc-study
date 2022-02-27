@@ -13,12 +13,21 @@ import java.net.URLEncoder;
 
 @RestController
 public class FileController {
-    //@RequestParam("file") 将name=file控件得到的文件封装成CommonsMultipartFile 对象
-    //批量上传CommonsMultipartFile则为数组即可
+    /*
+    方法一：
+    @RequestParam("file") 将name=file控件得到的文件封装成CommonsMultipartFile 对象
+    批量上传CommonsMultipartFile则为数组即可
+
+    CommonsMultipartFile的常用方法：
+        1、String getOriginalFilename()：获取上传文件的原名
+        2、InputStream getInputStream()：获取文件流
+        3、void transferTo(File dest)：将上传文件保存到一个目录文件中
+     */
+
     @RequestMapping("/upload")
     public String fileUpload(@RequestParam("file") CommonsMultipartFile file , HttpServletRequest request) throws IOException, IOException {
 
-        //获取文件名 : file.getOriginalFilename();
+        //获取上传文件的原名 : file.getOriginalFilename();
         String uploadFileName = file.getOriginalFilename();
 
         //如果文件名为空，直接回到首页！
@@ -36,7 +45,7 @@ public class FileController {
         }
         System.out.println("上传文件保存地址："+realPath);
 
-        InputStream is = file.getInputStream(); //文件输入流
+        InputStream is = file.getInputStream(); //获取文件输入流
         OutputStream os = new FileOutputStream(new File(realPath,uploadFileName)); //文件输出流
 
         //读取写出
@@ -53,7 +62,7 @@ public class FileController {
 
     //编写Controller
     /*
-     * 采用file.Transto 来保存上传的文件
+     * 方法二：采用file.Transto 来保存上传的文件（推荐，比较方便）
      */
     @RequestMapping("/upload2")
     public String  fileUpload2(@RequestParam("file") CommonsMultipartFile file, HttpServletRequest request) throws IOException {
@@ -73,20 +82,21 @@ public class FileController {
         return "redirect:/index.jsp";
     }
 
-
+    /*
+    下载文件方法
+     */
     @RequestMapping(value="/download")
     public String downloads(HttpServletResponse response , HttpServletRequest request) throws Exception{
         //要下载的图片地址
         String  path = request.getServletContext().getRealPath("/upload");
-        String  fileName = "基础语法.jpg";
+        String  fileName = "1.png";
 
         //1、设置response 响应头
         response.reset(); //设置页面不缓存,清空buffer
         response.setCharacterEncoding("UTF-8"); //字符编码
         response.setContentType("multipart/form-data"); //二进制传输数据
         //设置响应头
-        response.setHeader("Content-Disposition",
-                "attachment;fileName="+ URLEncoder.encode(fileName, "UTF-8"));
+        response.setHeader("Content-Disposition","attachment;fileName="+ URLEncoder.encode(fileName, "UTF-8"));
 
         File file = new File(path,fileName);
         //2、 读取文件--输入流
@@ -103,6 +113,6 @@ public class FileController {
         }
         out.close();
         input.close();
-        return null;
+        return "ok";
     }
 }

@@ -7,6 +7,7 @@
 <script>
 
     function go() {
+        //所有的值变量，提前获取
         var url=document.getElementById("url").value;
         document.getElementById("iframe1").src=url;
     }
@@ -17,7 +18,7 @@
 <div>
     <p>请输入地址：</p>
     <p>
-        <input id="url" type="text" value="https://blog.kuangstudy.com/index.php/">
+        <input id="url" type="text" value="https://www.baidu.com/">
         <input type="submit" value="确定" onclick="go()">
     </p>
 </div>

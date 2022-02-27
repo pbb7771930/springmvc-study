@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
     <!-- 自动扫描包，让指定包下的注解生效,由IOC容器统一管理 -->
-    <context:component-scan base-package="com.kuang.controller"/>
+    <context:component-scan base-package="controller"/>
 
     <!-- 让Spring MVC不处理静态资源 -->
     <mvc:default-servlet-handler />
@@ -55,17 +55,19 @@
     <!--拦截器配置-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <!--包括这个请求下面的所有资源-->
+            <!--包括这个请求下面的所有资源，所有的请求都拦截 -->
             <mvc:mapping path="/**"/>
-            <bean class="com.kuang.config.MyInterceptor"/>
+            <!-- 配置自己写的拦截器 ： 类名-->
+            <bean class="config.MyInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <!--包括这个请求下面的所有资源-->
+            <!--包括这个请求下面的所有资源，/user路径下的请求 -->
             <mvc:mapping path="/user/**"/>
-            <bean class="com.kuang.config.LoginInterceptor"/>
+            <!-- 配置自己写的拦截器 ： 类名-->
+            <bean class="config.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

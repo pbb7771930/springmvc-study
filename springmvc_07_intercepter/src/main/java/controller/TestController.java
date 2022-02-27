@@ -8,7 +8,7 @@ public class TestController {
 
     @RequestMapping("/t1")
     public String test(){
-        System.out.println("test1执行了");
+        System.out.println("TestController==>>test方法执行了");
         return "ok";
     }
 }

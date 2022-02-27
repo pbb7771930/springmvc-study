@@ -11,8 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-https://blog.kuangstudy.com/index.php/archives/484/
-<a href="${pageContext.request.contextPath}/user/goLogin">登陆页面</a>
-<a href="${pageContext.request.contextPath}/user/main">进入首页</a>
+    <a href="${pageContext.request.contextPath}/user/goLogin">登陆页面</a>
+    <a href="${pageContext.request.contextPath}/user/main">进入首页</a>
   </body>
 </html>

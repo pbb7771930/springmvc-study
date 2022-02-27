@@ -16,7 +16,7 @@
     $(function () {
         $("#btn").click(function () {
             $.post("${pageContext.request.contextPath}/a2", function (data) {
-                //console.log(data);
+                console.log(data);
                 var html="";
                 for(let i=0;i<data.length;i++){
                     html +="<tr>"+

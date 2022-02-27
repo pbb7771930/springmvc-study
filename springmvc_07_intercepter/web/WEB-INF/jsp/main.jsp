@@ -13,7 +13,9 @@
 <body>
 <h1>首页</h1>
 <span>
-    ${username}
+    用户：${username}
+    <br>
+    你的密码是：${password}
     <br>
     <a href="${pageContext.request.contextPath}/user/goOut">注销</a>
 </span>

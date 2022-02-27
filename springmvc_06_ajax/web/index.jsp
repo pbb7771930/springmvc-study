@@ -16,6 +16,7 @@
     function a() {
         $.post({
           url:"${pageContext.request.contextPath}/a1",
+          //data为传送给Controller的数据，键值对形式
           data:{"name":$("#username").val()},
           success:function(data){
             alert(data)
@@ -25,7 +26,7 @@
 </script>
 
 <body>
-<!--失去焦点-->
+<!--失去焦点的时候，发起一个请求到后台-->
 用户名：<input type="text" id="username" onblur="a()">
 </body>
 </html>
