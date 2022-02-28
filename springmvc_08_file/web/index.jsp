@@ -21,6 +21,9 @@
     <br>
     <%--  直接下载文件  --%>
     <a href="${pageContext.request.contextPath}/statics/1.png">下载文件</a>
+    <br>
+    <a href="${pageContext.request.contextPath}/download">下载文件2</a>
+
 
 </body>
 </html>
