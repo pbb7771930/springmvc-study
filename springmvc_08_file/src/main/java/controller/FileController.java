@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.util.logging.Logger;
 
 @RestController
 public class FileController {
@@ -34,16 +35,18 @@ public class FileController {
         if ("".equals(uploadFileName)){
             return "redirect:/index.jsp";
         }
-        System.out.println("上传文件名 : "+uploadFileName);
+        System.out.println("上传文件的全路径名称为 : "+uploadFileName);
 
         //上传路径保存设置
         String path = request.getServletContext().getRealPath("/upload");
+        System.out.println("上传服务器目标路径为：" + path);
+
         //如果路径不存在，创建一个
         File realPath = new File(path);
         if (!realPath.exists()){
             realPath.mkdir();
         }
-        System.out.println("上传文件保存地址："+realPath);
+        System.out.println("上传服务器文件保存路径为："+realPath);
 
         InputStream is = file.getInputStream(); //获取文件输入流
         OutputStream os = new FileOutputStream(new File(realPath,uploadFileName)); //文件输出流
@@ -89,6 +92,7 @@ public class FileController {
     public String downloads(HttpServletResponse response , HttpServletRequest request) throws Exception{
         //要下载的图片地址
         String  path = request.getServletContext().getRealPath("/upload");
+        System.out.println("要下载的文件路径为：" + path);
         String  fileName = "1.png";
 
         //1、设置response 响应头
